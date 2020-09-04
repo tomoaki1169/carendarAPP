@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @blogs = Blog.all
@@ -40,6 +41,12 @@ class BlogsController < ApplicationController
 
   def blog_parameter
     params.require(:blog).permit(:title, :content, :start_time)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end
