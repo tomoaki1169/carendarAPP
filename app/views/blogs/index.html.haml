@@ -11,8 +11,8 @@
         %td= blog.title
         %td= blog.start_time.strftime("%Y-%m-%d %H:%M")
         %td= link_to '表示', blog
-      - if user_signed_in? && curent_user.id == blog.user_id
-        %td= link_to '詳細', edit_blog_path(blog.id)
+      - if user_signed_in? && current_user.id == blog.user_id
+        %td= link_to '変更する', edit_blog_path(blog.id)
         %td= link_to '消去',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'カレンダー記載', new_blog_path

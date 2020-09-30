@@ -5,7 +5,7 @@
         %ul
           .user__info
           %li
-            =link_to "マイページ", "/users/#{current_user.id}"
+            -# =link_to "マイページ", "/users/#{current_user.id}"
             =link_to "ログアウト", destroy_user_session_path, method: :delete 
         = link_to "投稿する", new_blog_path, class: "post"
     -else
